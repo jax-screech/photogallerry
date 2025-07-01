@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Photo Gallery{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold my-4">Welcome to My Photo Gallery</h1>
+    <p class="mb-4">Explore a collection of beautiful photos.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {% for photo in photos %}
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="w-full h-auto rounded">
+                <h2 class="text-xl font-semibold mt-2">{{ photo.title }}</h2>
+                <p class="text-sm text-gray-600">{{ photo.description }}</p>
+            </div>
+        {% empty %}
+            <p>No photos available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

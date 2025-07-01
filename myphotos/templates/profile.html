@@ -1,0 +1,14 @@
+<h2>{{ user.username }}'s Photos</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+  {% for photo in photos %}
+    <div class="border rounded shadow">
+      <img src="{{ photo.image.url }}" class="w-full h-48 object-cover">
+      <div class="p-2">
+        <h3 class="text-lg font-semibold">{{ photo.title }}</h3>
+        <p class="text-sm text-gray-600">{{ photo.description }}</p>
+      </div>
+    </div>
+  {% empty %}
+    <p>No photos uploaded yet.</p>
+  {% endfor %}
+</div>
